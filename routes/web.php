@@ -18,12 +18,20 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
+    return Inertia::render('Home', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
+})->name('home');
+
+Route::get('/campaign/editor', function () {
+    return Inertia::render('Campaign/Editor');
+});
+
+Route::get('/campaign/show', function() {
+    return Inertia::render('Campaign/Show');
 });
 
 Route::get('/dashboard', function () {

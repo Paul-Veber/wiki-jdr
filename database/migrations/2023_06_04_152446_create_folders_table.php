@@ -14,8 +14,14 @@ return new class extends Migration
         Schema::create('folders', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->boolean('isPublic');
+            $table->boolean('isRestricted');
             $table->foreignId('folder_id')
                 ->nullable()
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignId('campaign_id')
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');

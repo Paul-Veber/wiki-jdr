@@ -19,6 +19,7 @@ class Folder extends Model
         'name',
         'text',
         'folder_id',
+        'role'
     ];
 
     protected $hidden = [

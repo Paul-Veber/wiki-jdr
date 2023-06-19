@@ -15,7 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('text');
+            $table->boolean('isPublic');
+            $table->boolean('isRestricted');
             $table->foreignId('folder_id')
+                ->nullable()
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreignId('campaign_id')
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');

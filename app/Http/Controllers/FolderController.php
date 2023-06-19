@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreFolderRequest;
 use App\Models\Folder;
 use Illuminate\Http\Request;
 
@@ -26,11 +27,11 @@ class FolderController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreFolderRequest $request)
     {
         $folder = Folder::create([
             'name' => $request->input('name'),
-            'name' => $request->input('folder_id'),
+            'folder_id' => $request->input('folder_id'),
         ]);
 
         return $folder;
